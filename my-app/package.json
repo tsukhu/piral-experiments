@@ -6,11 +6,15 @@
     "piral"
   ],
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.26",
+    "@fortawesome/free-solid-svg-icons": "^5.12.0",
+    "@fortawesome/react-fontawesome": "^0.1.8",
     "autoprefixer": "^9.7.4",
     "cssnano": "^4.1.10",
     "piral": "next",
     "postcss-cli": "^7.1.0",
     "postcss-modules": "^1.5.0",
+    "styled-components": "^5.0.0",
     "tailwindcss": "^1.1.4"
   },
   "scripts": {

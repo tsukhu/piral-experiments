@@ -7,6 +7,8 @@ import {
   SwitchErrorInfo,
   MenuItemProps
 } from "piral";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
 
 const MenuItem: React.FC<MenuItemProps> = ({ children }) => (
@@ -128,8 +130,8 @@ export const layout: Partial<ComponentsState> = {
     </div>
   ),
   LoadingIndicator: () => (
-    <div className="pi-center">
-      <div className="pi-spinner">Loading</div>
+    <div className="flex items-center justify-center flex-grow h-screen">
+      <FontAwesomeIcon icon={faSpinner} spin />
     </div>
   ),
   MenuContainer: ({ children }) => {
@@ -186,7 +188,7 @@ export const layout: Partial<ComponentsState> = {
   NotificationsToast: ({ options, onClose, children }) => (
     <div className="flex flex-row-reverse">
       <div
-        className="object object-bottom w-1/6 mt-20 p-20 bg-red border border-red-400 text-white px-4 py-3 rounded absolute"
+        className="w-1/6 mt-20 p-20 bg-red-600 text-white px-4 py-3 rounded absolute"
         role="alert"
       >
         {options.title && (
@@ -198,7 +200,7 @@ export const layout: Partial<ComponentsState> = {
           onClick={onClose}
         >
           <svg
-            className="fill-current h-6 w-6 text-red-500"
+            className="fill-current h-6 w-6"
             role="button"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
