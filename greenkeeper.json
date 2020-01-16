@@ -1,0 +1,11 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "my-app/package.json",
+        "my-pilet/package.json",
+        "sample-piral/package.json"
+      ]
+    }
+  }
+}
