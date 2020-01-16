@@ -32,9 +32,9 @@
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "piral": "^0.9.3",
-    "piral-auth": "^0.9.3",
-    "piral-search": "^0.9.3",
+    "piral": "next",
+    "piral-auth": "next",
+    "piral-search": "next",
     "reactstrap": "^8.0.1"
   },
   "devDependencies": {
@@ -42,7 +42,7 @@
     "@types/react-dom": "^16.8.0",
     "@types/react-router": "^5.0.0",
     "@types/react-router-dom": "latest",
-    "piral-cli": "^0.9.3",
+    "piral-cli": "next",
     "sass": "^1.17.0"
   },
   "pilets": {
