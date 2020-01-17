@@ -5,16 +5,20 @@ import {
   Menu,
   Notifications,
   SwitchErrorInfo,
-  MenuItemProps
+  MenuItemProps,
+  useGlobalState
 } from "piral";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { Link } from "react-router-dom";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { NavLink } from "react-router-dom";
 
 const MenuItem: React.FC<MenuItemProps> = ({ children }) => (
-  <li className="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4">
+  <div
+    id="menu-item"
+    className="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4 first:a:active:bg-red-300"
+  >
     {children}
-  </li>
+  </div>
 );
 
 export interface TileItemProps {
@@ -26,10 +30,10 @@ export interface TileItemProps {
 const Tile: React.FC<TileItemProps> = ({ link, name, description }) => {
   return (
     <div className="w-full sm:w-1/2 md:w-1/3 mb-4 px-2">
-      <div className="relative bg-white rounded border">
+      <div className="relative bg-white rounded border hover:border-teal-600">
         <div className="p-4">
-          <h3 className="text-lg font-bold">
-            <a className="stretched-link" href={link} title={name}>
+          <h3 className="text-lg font-bold hover:text-red-700">
+            <a href={link} title={name}>
               {name}
             </a>
           </h3>
@@ -66,7 +70,7 @@ const defaultTiles = () => {
   return (
     <>
       {tileList.map(tile => (
-        <Tile {...tile} />
+        <Tile {...tile} key={tile.name} />
       ))}
     </>
   );
@@ -75,12 +79,12 @@ const defaultTiles = () => {
 const defaultMenuItems = (
   <>
     <MenuItem type="general">
-      <Link
+      <NavLink
         className="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4"
         to="/not-found"
       >
         Not Found
-      </Link>
+      </NavLink>
     </MenuItem>
   </>
 );
@@ -88,11 +92,11 @@ const defaultMenuItems = (
 export const errors: Partial<ErrorComponentsState> = {
   not_found: () => (
     <div>
-      <p className="error">
+      <p className="antialiased italic">
         Could not find the requested page. Are you sure it exists?
       </p>
-      <p>
-        Go back <Link to="/">to the dashboard</Link>.
+      <p className="antialiased" >
+        Go back <NavLink to="/" className="text-teal-400 hover:font-bold text-teal-600">to the dashboard</NavLink>.
       </p>
     </div>
   )
@@ -100,13 +104,13 @@ export const errors: Partial<ErrorComponentsState> = {
 
 export const layout: Partial<ComponentsState> = {
   ErrorInfo: props => (
-    <div>
-      <h1>Error</h1>
+    <div className="text-center m-2 p-2">
+      <h1 className="antialiased font-bold text-red-600 text-lg">Error</h1>
       <SwitchErrorInfo {...props} />
     </div>
   ),
   DashboardContainer: ({ children }) => (
-    <div className="container max-w-full mx-auto">
+    <div className="container max-w-full mx-auto mt-2 ">
       <h1 className="text-center text-4xl text-black font-medium leading-snug tracking-wider">
         Piral microfrontend experiments
       </h1>
@@ -115,7 +119,7 @@ export const layout: Partial<ComponentsState> = {
       </p>
       <div className="h-1 mx-auto bg-indigo-200 w-24 opacity-75 mt-4 rounded"></div>
 
-      <div className="flex flex-row flex-wrap -mx-2 mt-2">
+      <div className="flex flex-row flex-wrap align-center mx-32 mt-4">
         {defaultTiles()}
         {children}
       </div>
@@ -150,7 +154,7 @@ export const layout: Partial<ComponentsState> = {
               <path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
             </svg>
             <span className="font-semibold text-xl tracking-tight">
-              <Link to="/">Piral</Link>
+              <NavLink to="/">Piral</NavLink>
             </span>
           </div>
           <div className="block lg:hidden">
