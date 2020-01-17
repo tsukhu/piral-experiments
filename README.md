@@ -6,8 +6,7 @@
 
 - Piral Instance / App Shell (my-app)
 - Piral Pilet #1 / React based pilet (my-pilet)
-
-- The (sample-piral) project is just for reference taken from the [main piral repo](https://github.com/smapiot/piral/tree/master/src/samples/sample-piral). This is only for refering to the best practices, please use the original version from the main piral repo. This will be removed later on once I get the hang of things.
+- Piral Pilet #1 / Svelte based pilte (my-svelte)
 
 # Objectives
 

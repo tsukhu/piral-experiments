@@ -1,13 +1,20 @@
 <script>
   // use from props
-  export let columns;
-  export let rows;
+  let name = "My Svelte Pilet";
+  let link = "/";
+  let description = "say hello to Svelte";
 </script>
 
 <style>
-  h1 {
-    text-align: center;
-  }
 </style>
 
-<h1>Hello {columns} x {rows}!</h1>
+<div class="w-full mb-4 px-2">
+  <div class="relative bg-white rounded border hover:border-teal-600">
+    <div class="p-4">
+      <h3 class="text-lg font-bold hover:text-red-700">
+        <a href={link} title={name}>{name}</a>
+      </h3>
+      <p>{description}</p>
+    </div>
+  </div>
+</div>

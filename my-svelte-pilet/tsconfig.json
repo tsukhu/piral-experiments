@@ -17,7 +17,7 @@
     "importHelpers": true
   },
   "include": [
-    "./src"
+    "./src", "svelte.config.js"
   ],
   "exclude": [
     "node_modules"

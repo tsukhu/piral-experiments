@@ -1,6 +1,6 @@
 {
   "name": "my-app",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "keywords": [
     "piral"
@@ -10,6 +10,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "@fortawesome/react-fontawesome": "^0.1.8",
     "autoprefixer": "^9.7.4",
+    "cross-env": "^6.0.3",
     "cssnano": "^4.1.10",
     "piral": "next",
     "piral-svelte": "^0.10.0-pre.827",
@@ -27,7 +28,7 @@
     "files": [],
     "externals": [],
     "scripts": {
-      "build": "npm run build-pilet",
+      "build": "cross-env NODE_ENV=production npm run build-pilet",
       "start": "npm run debug-pilet"
     },
     "validators": {},
