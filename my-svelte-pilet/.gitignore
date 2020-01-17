@@ -2,4 +2,6 @@
 /public/build/
 
 .DS_Store
-/src/styles/tailwind.css
+src/styles/tailwind.css
+dist/
+.cache/
