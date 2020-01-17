@@ -2,6 +2,7 @@ import { PiletApi } from "my-app";
 import { MyPage } from "./MyPage";
 import { MyPageMenu } from "./MyPageMenu";
 import * as React from "react";
+import { Link } from 'react-router-dom';
 import './styles/tailwind.css';
 
 const apiUrl = "https://jsonplaceholder.typicode.com/posts";
@@ -18,9 +19,9 @@ const Tile: React.FC<TileItemProps> = ({ link, name, description }) => {
       <div className="relative bg-white rounded border hover:border-teal-600">
         <div className="p-4">
           <h3 className="text-lg font-bold hover:text-red-700">
-            <a href={link} title={name}>
+            <Link to={link}>
               {name}
-            </a>
+            </Link>
           </h3>
           <p>{description}</p>
         </div>

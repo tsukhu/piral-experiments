@@ -1,5 +1,6 @@
 import 'piral/polyfills';
 import { renderInstance } from 'piral';
+import { createSvelteApi } from 'piral-svelte';
 import { layout, errors } from './layout';
 
 // change to your feed URL here (either using feed.piral.io or your own service)
@@ -13,4 +14,5 @@ renderInstance({
       .then(res => res.json())
       .then(res => res.items);
   },
+  extendApi: [createSvelteApi()],
 });
