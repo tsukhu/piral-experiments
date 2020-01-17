@@ -6,7 +6,7 @@
 
 - Piral Instance / App Shell (my-app)
 - Piral Pilet #1 / React based pilet (my-pilet)
-- Piral Pilet #1 / Svelte based pilte (my-svelte)
+- Piral Pilet #2 / Svelte based pilte (my-svelte)
 
 # Objectives
 
