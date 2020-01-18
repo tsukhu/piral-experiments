@@ -8,7 +8,6 @@
 <style>
 </style>
 
-<div class="w-full mb-4 px-2">
   <div class="relative bg-white rounded border hover:border-teal-600">
     <div class="p-4">
       <h3 class="text-lg font-bold hover:text-red-700">
@@ -17,4 +16,3 @@
       <p>{description}</p>
     </div>
   </div>
-</div>

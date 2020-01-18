@@ -1,4 +1,5 @@
 import { PiletApi } from "my-app";
+import "./styles/index.scss";
 import './styles/tailwind.css';
 import Tile from "./Tile.svelte";
 
