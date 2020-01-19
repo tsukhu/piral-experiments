@@ -15,7 +15,12 @@ const customStore = {
     hobbies.update(items => {
       return [newHobby, ...items];
     });
-  }
+  },
+  removeHobby: (id) => {
+    hobbies.update(items => {
+        return items.filter(i => i.id !== id)
+    })
+}
 };
 
 export default customStore;

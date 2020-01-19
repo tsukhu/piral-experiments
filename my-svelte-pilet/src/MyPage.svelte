@@ -1,8 +1,6 @@
 <script>
   import { onMount } from "svelte";
   import hobbyStore from "./hobby-store.js";
-
-  export let name;
   let hobbies = [];
   let hobbyInput = "";
   let isLoading = false;
@@ -58,6 +56,23 @@
         console.log(err);
       });
   }
+
+  function deleteHobby(id) {
+    fetch(`https://svelte-course-3d38e.firebaseio.com/hobbies/${id}.json`, {
+      method: "DELETE"
+    })
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("An error occured, please try again");
+        }
+        hobbyStore.removeHobby(id);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+    dispatch("save");
+  }
 </script>
 
 <style>
@@ -75,7 +90,15 @@
 {:else}
   <ul>
     {#each $hobbyStore as hobby}
-      <li>{hobby.name}</li>
+      <li>
+        <span class="inline">
+          <div
+            class="cursor-pointer hover:text-red"
+            on:click={() => deleteHobby(hobby.id)}>
+            {hobby.name} x
+          </div>
+        </span>
+      </li>
     {/each}
   </ul>
 {/if}
