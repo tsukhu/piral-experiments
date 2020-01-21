@@ -33,9 +33,12 @@ const Tile: React.FC<TileItemProps> = ({ link, name, description }) => {
       <div className="relative bg-white rounded border hover:border-teal-600">
         <div className="p-4">
           <h3 className="text-lg font-bold hover:text-red-700">
-            <a href={link} title={name}>
-              {name}
-            </a>
+            {link.startsWith("/") && <NavLink to={link}>{name}</NavLink>}
+            {!link.startsWith("/") && (
+              <a href={link} title={name}>
+                {name}
+              </a>
+            )}
           </h3>
           <p>{description}</p>
         </div>
@@ -65,6 +68,11 @@ const defaultTiles = () => {
       link: "https://tailwindcss.com/",
       name: "TailwindCSS",
       description: "for layout and styling"
+    },
+    {
+      link: "/svlete-posts",
+      name: "My Svelte Pilet",
+      description: "Say hello to Svelte"
     }
   ];
   return (
@@ -78,6 +86,14 @@ const defaultTiles = () => {
 
 const defaultMenuItems = (
   <>
+    <MenuItem type="general">
+      <NavLink
+        className="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4"
+        to="/svlete-posts"
+      >
+        Svelte Hobbies
+      </NavLink>
+    </MenuItem>
     <MenuItem type="general">
       <NavLink
         className="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4"
@@ -95,8 +111,12 @@ export const errors: Partial<ErrorComponentsState> = {
       <p className="antialiased italic">
         Could not find the requested page. Are you sure it exists?
       </p>
-      <p className="antialiased" >
-        Go back <NavLink to="/" className="text-teal-400 hover:font-bold text-teal-600">to the dashboard</NavLink>.
+      <p className="antialiased">
+        Go back{" "}
+        <NavLink to="/" className="text-teal-400 hover:font-bold text-teal-600">
+          to the dashboard
+        </NavLink>
+        .
       </p>
     </div>
   )
@@ -135,7 +155,7 @@ export const layout: Partial<ComponentsState> = {
   ),
   LoadingIndicator: () => (
     <div className="flex items-center justify-center flex-grow h-screen">
-      <FontAwesomeIcon icon={faSpinner} spin />
+      <FontAwesomeIcon icon={faSpinner} spin size="lg" />
     </div>
   ),
   MenuContainer: ({ children }) => {

@@ -1,16 +1,17 @@
 # Piral Experiments
 
 - This project is to explore all the features of the amazing framework `piral` for building microfrontends
+- This is still work in progress
 
 # Current projects
 
 - Piral Instance / App Shell (my-app)
-- Piral Pilet #1 / React based pilet (my-pilet)
-- Piral Pilet #2 / Svelte based pilte (my-svelte)
+- Piral Pilet #1 / React based pilet (my-pilet) -> Uses JSONHolder API for reading a list of posts
+- Piral Pilet #2 / Svelte based pilte (my-svelte) -> CRUD APIs using Firebase
 
 # Objectives
 
-- Use Tailwind CSS as the UI framework
+- Use Tailwind CSS as the UI framework so that we can have a consistent UI across frameworks
 - Try out all features of Piral
 - Create cross fx samples - React, LitElements, Svelte, Vue
 - Extend the API for customizing
