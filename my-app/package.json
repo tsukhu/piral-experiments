@@ -21,7 +21,8 @@
   },
   "scripts": {
     "start": "piral debug",
-    "build": "piral build"
+    "addfiles": "copyfiles ./_redirects dist/release/",
+    "build": "cross-env NODE_ENV=production piral build && npm run addfiles"
   },
   "app": "./src/index.html",
   "pilets": {
@@ -45,6 +46,7 @@
     "@types/react-dom": "latest",
     "@types/react-router": "latest",
     "@types/react-router-dom": "latest",
+    "copyfiles": "^2.2.0",
     "piral-cli": "next",
     "sass": "^1.24.4",
     "typescript": "latest"
