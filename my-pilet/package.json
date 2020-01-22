@@ -52,7 +52,6 @@
     "build": "npm run build:style && cross-env NODE_ENV=production npm run build-pilet",
     "start": "npm run build:style && npm run debug-pilet",
     "publish:local": "cross-env NODE_ENV=production pilet publish --fresh --api-key df133a512569cbc85f69788d1b7ff5a909f6bcfe1c9a2794283a2fc35175882c --url http://localhost:9000/api/v1/pilet",
-    "publish:cloud": "cross-env NODE_ENV=production pilet publish --fresh --api-key 71498f31bef2e8a15dd0df2c7a519bcf8da9525b3a23294875b27143ea6574de --url https://feed.piral.io/api/v1/pilet/tksukhu"
   },
   "main": "dist/index.js",
   "files": [
