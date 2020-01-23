@@ -1,4 +1,6 @@
 import { PiletApi } from "my-app";
+import "./styles/index.scss";
+import "./styles/tailwind.css";
 import { createTile } from "./tile";
 import { createMainPage } from "./main-page";
 import { createMenu } from "./my-menu";
