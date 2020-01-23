@@ -73,6 +73,11 @@ const defaultTiles = () => {
       link: "/svlete-posts",
       name: "My Svelte Pilet",
       description: "Say hello to Svelte"
+    },
+    {
+      link: "/lit-page",
+      name: "My LitElem Pilet",
+      description: "Say hello to LitElem"
     }
   ];
   return (
@@ -92,6 +97,14 @@ const defaultMenuItems = (
         to="/svlete-posts"
       >
         Svelte Hobbies
+      </NavLink>
+    </MenuItem>
+    <MenuItem type="general">
+      <NavLink
+        className="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4"
+        to="/lit-page"
+      >
+        LitElem Counter
       </NavLink>
     </MenuItem>
     <MenuItem type="general">

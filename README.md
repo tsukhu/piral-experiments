@@ -7,7 +7,8 @@
 
 - Piral Instance / App Shell (my-app)
 - Piral Pilet #1 / React based pilet (my-pilet) -> Uses JSONHolder API for reading a list of posts
-- Piral Pilet #2 / Svelte based pilte (my-svelte) -> CRUD APIs using Firebase
+- Piral Pilet #2 / Svelte based pilet (my-svelte) -> CRUD APIs using Firebase
+- Piral Pilet #4 / LitElement based pilet (my-litelem-pilet) -> Web Component
 
 # Objectives
 

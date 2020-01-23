@@ -12,10 +12,10 @@ export function setup(piral: PiletApi) {
   const tile = createTile();
   const mypage = createMainPage();
   const mymenu = createMenu();
-  piral.registerMenu(piral.fromLitEl(mymenu));
+ // piral.registerMenu(piral.fromLitEl(mymenu));
   piral.registerPage("/lit-page", piral.fromLitEl(mypage));
-  piral.registerTile(piral.fromLitEl(tile), {
+/*   piral.registerTile(piral.fromLitEl(tile), {
     initialColumns: 2,
     initialRows: 2
-  });
+  }); */
 }
