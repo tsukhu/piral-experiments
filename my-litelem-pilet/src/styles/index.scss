@@ -1,0 +1,18 @@
+@import "@fortawesome/fontawesome-free/css/all.css";
+
+div[data-portal-id] {
+  width: 100%;
+
+  @media (min-width: 640px) {
+    width: 50%;
+  }
+
+  @media (min-width: 768px) {
+    width: 33.333333%;
+  }
+  
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+
+  margin-bottom: 1rem;
+}

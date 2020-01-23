@@ -1,6 +1,6 @@
 {
   "name": "my-app",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "description": "",
   "keywords": [
     "piral"
@@ -9,10 +9,13 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "@fortawesome/react-fontawesome": "^0.1.8",
+    "@webcomponents/webcomponentsjs": "^2.4.0",
     "autoprefixer": "^9.7.4",
     "cross-env": "^6.0.3",
     "cssnano": "^4.1.10",
+    "lit-element": "^2.2.1",
     "piral": "next",
+    "piral-litel": "^0.10.0-pre.823",
     "piral-svelte": "^0.10.0-pre.827",
     "postcss-cli": "^7.1.0",
     "postcss-modules": "^1.5.0",
@@ -50,5 +53,8 @@
     "piral-cli": "next",
     "sass": "^1.24.4",
     "typescript": "latest"
-  }
+  },
+  "browserslist": [
+    "last 1 chrome versions"
+  ]
 }
