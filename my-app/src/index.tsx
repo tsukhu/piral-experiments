@@ -17,7 +17,10 @@ renderInstance({
   requestPilets() {
     return fetch(feedUrl)
       .then(res => res.json())
-      .then(res => res.items);
+      .then(res => res.items)
+      .catch(() => {
+        return [];
+      });
   },
   extendApi: [createLitElApi(),createSvelteApi()]
 });
