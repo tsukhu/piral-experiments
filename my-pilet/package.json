@@ -1,6 +1,6 @@
 {
   "name": "my-pilet",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "keywords": [
     "pilet"
@@ -11,38 +11,41 @@
     "cssnano": "^4.1.10",
     "postcss-cli": "^7.1.0",
     "postcss-modules": "^1.5.0",
+    "react-frame-component": "^4.1.1",
+    "react-iframe": "^1.8.0",
     "tailwindcss": "^1.1.4"
   },
   "devDependencies": {
-    "my-app": "file:C:\\workspace\\test\\microfrontend\\piral-experiments\\my-app\\dist\\develop\\my-app-1.0.7.tgz",
-    "typescript": "latest",
+    "@dbeining/react-atom": "4.1.5",
+    "@libre/atom": "1.3.3",
+    "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "@types/react-router": "latest",
     "@types/react-router-dom": "latest",
-    "@types/node": "latest",
-    "@dbeining/react-atom": "4.1.5",
-    "@libre/atom": "1.3.3",
     "history": "4.10.1",
+    "my-app": "file:C:\\workspace\\test\\microfrontend\\piral-experiments\\my-app\\dist\\develop\\my-app-1.0.15.tgz",
+    "path-to-regexp": "1.8.0",
+    "piral-cli": "^0.9.3",
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "react-router": "5.1.2",
     "react-router-dom": "5.1.2",
+    "sass": "^1.25.0",
     "tslib": "1.10.0",
-    "path-to-regexp": "1.8.0",
-    "piral-cli": "^0.9.3"
+    "typescript": "latest"
   },
   "peerDependencies": {
     "@dbeining/react-atom": "*",
     "@libre/atom": "*",
     "history": "*",
+    "my-app": "*",
+    "path-to-regexp": "*",
     "react": "*",
     "react-dom": "*",
     "react-router": "*",
     "react-router-dom": "*",
-    "tslib": "*",
-    "path-to-regexp": "*",
-    "my-app": "*"
+    "tslib": "*"
   },
   "scripts": {
     "debug-pilet": "pilet debug",
@@ -52,6 +55,7 @@
     "build": "npm run build:style && cross-env NODE_ENV=production npm run build-pilet",
     "start": "npm run build:style && npm run debug-pilet",
     "publish:local": "cross-env NODE_ENV=production pilet publish --fresh --api-key df133a512569cbc85f69788d1b7ff5a909f6bcfe1c9a2794283a2fc35175882c --url http://localhost:9000/api/v1/pilet",
+    "publish:cloud": "cross-env NODE_ENV=production pilet publish --fresh --api-key 71498f31bef2e8a15dd0df2c7a519bcf8da9525b3a23294875b27143ea6574de --url https://feed.piral.io/api/v1/pilet/tksukhu"
   },
   "main": "dist/index.js",
   "files": [
@@ -60,7 +64,7 @@
   "piral": {
     "comment": "Keep this section to allow running `piral upgrade`.",
     "name": "my-app",
-    "version": "1.0.0",
+    "version": "1.0.11",
     "tooling": "0.9.3",
     "externals": [],
     "files": [],

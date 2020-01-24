@@ -5,8 +5,8 @@ import {
   Menu,
   Notifications,
   SwitchErrorInfo,
-  MenuItemProps,
-  useGlobalState
+  MenuItemProps
+  // ,useGlobalState
 } from "piral";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
@@ -16,6 +16,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ children }) => (
   <div
     id="menu-item"
     className="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4 first:a:active:bg-red-300"
+    style={{ width: "fit-content" }}
   >
     {children}
   </div>
@@ -50,36 +51,17 @@ const Tile: React.FC<TileItemProps> = ({ link, name, description }) => {
 const defaultTiles = () => {
   const tileList = [
     {
-      link: "https://piral.io/",
-      name: "Piral",
-      description: "for next generation portals"
-    },
-    {
-      link: "https://www.typescriptlang.org/",
-      name: "TypeScript",
-      description: "for next generation portals"
-    },
-    {
-      link: "https://reactjs.org/",
-      name: "React",
-      description: "for building components"
-    },
-    {
-      link: "https://tailwindcss.com/",
-      name: "TailwindCSS",
-      description: "for layout and styling"
-    },
-    {
       link: "/svlete-posts",
       name: "My Svelte Pilet",
       description: "Say hello to Svelte"
-    },
+    } /* ,
     {
       link: "/lit-page",
       name: "My LitElem Pilet",
       description: "Say hello to LitElem"
-    }
+    } */
   ];
+
   return (
     <>
       {tileList.map(tile => (
@@ -99,14 +81,14 @@ const defaultMenuItems = (
         Svelte Hobbies
       </NavLink>
     </MenuItem>
-    <MenuItem type="general">
+    {/*     <MenuItem type="general">
       <NavLink
         className="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4"
         to="/lit-page"
       >
         LitElem Counter
       </NavLink>
-    </MenuItem>
+    </MenuItem> */}
     <MenuItem type="general">
       <NavLink
         className="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4"
@@ -163,16 +145,17 @@ export const layout: Partial<ComponentsState> = {
     <div>
       <Notifications />
       <Menu type="general" />
-      <div className="container">{children}</div>
+      {children}
     </div>
   ),
   LoadingIndicator: () => (
     <div className="flex items-center justify-center flex-grow h-screen">
-      <FontAwesomeIcon icon={faSpinner} spin size="lg" />
+      <FontAwesomeIcon icon={faSpinner} spin size="6x" />
     </div>
   ),
   MenuContainer: ({ children }) => {
     const [collapsed, setCollapsed] = React.useState(true);
+    console.log(collapsed);
     return (
       <header>
         <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
@@ -191,9 +174,12 @@ export const layout: Partial<ComponentsState> = {
             </span>
           </div>
           <div className="block lg:hidden">
-            <button className="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light hover:text-white hover:border-white">
+            <button
+              className="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light hover:text-white hover:border-white"
+              onClick={() => setCollapsed(!collapsed)}
+            >
               <svg
-                className="h-3 w-3"
+                className="h-3 w-3 fill-current"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -202,15 +188,19 @@ export const layout: Partial<ComponentsState> = {
               </svg>
             </button>
           </div>
-          <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-            <div className="text-sm lg:flex-grow">
+          <div
+            className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${
+              collapsed ? "sm:hidden" : ""
+            }`}
+          >
+            <div className={`text-sm lg:flex-grow `}>
               {children}
               {defaultMenuItems}
             </div>
             <div>
               <a
                 href="#"
-                className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0"
+                className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
               >
                 Download
               </a>
