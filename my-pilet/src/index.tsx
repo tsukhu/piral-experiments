@@ -1,6 +1,7 @@
 import { PiletApi } from "my-app";
-import { MyPage } from "./MyPage";
-import { IFrame } from "./IFrame";
+//import { renderInDom } from 'piral-core';
+import MyPage from "./MyPage";
+import IFrame from "./IFrame";
 import { MyPageMenu } from "./MyPageMenu";
 import * as React from "react";
 import { Link, NavLink } from "react-router-dom";
@@ -35,23 +36,29 @@ export function setup(app: PiletApi) {
     fetch(apiUrl).then(res => res.json())
   );
   // app.showNotification("Hello from Piral!");
-  app.registerPage("/posts", connect(MyPage));
+  app.registerPage("/posts", 
+    connect(MyPage)
+  );
   app.registerPage("/docs", () => (
-    <IFrame id="piral docs" url="https://docs.piral.io" />
+    <IFrame id="piral docs" url="https://docs.piral.io" title="Docs" />
   ));
   app.registerPage("/meetup", () => (
-    <IFrame id="piral docs" url="https://meetup-tsukhu.netlify.com/" />
+    <IFrame
+      id="piral meetup"
+      url="https://meetup-tsukhu.netlify.com/"
+      title="Meetup"
+    />
   ));
   app.registerMenu(() => <NavLink to="/docs">Piral Docs</NavLink>);
   app.registerMenu(() => <NavLink to="/meetup">Meetup</NavLink>);
   app.registerPage("/typescript-site", () => (
-    <IFrame id="typescript" url="https://www.typescriptlang.org/" />
+    <IFrame id="typescript" url="https://www.typescriptlang.org/" title="Typescript" />
   ));
   app.registerPage("/react-site", () => (
-    <IFrame id="typescript" url="https://reactjs.org/" />
+    <IFrame id="typescript" url="https://reactjs.org/" title="ReactJS" />
   ));
   app.registerPage("/tailwind-site", () => (
-    <IFrame id="tailwind" url="https://tailwindcss.com/" />
+    <IFrame id="tailwind" url="https://tailwindcss.com/" title="TailwindCSS" />
   ));
   app.registerMenu(MyPageMenu);
   app.registerTile(

@@ -1,6 +1,6 @@
 {
   "name": "my-app",
-  "version": "1.0.16",
+  "version": "1.0.20",
   "description": "",
   "keywords": [
     "piral"
@@ -19,13 +19,16 @@
     "piral-svelte": "^0.10.0-pre.827",
     "postcss-cli": "^7.1.0",
     "postcss-modules": "^1.5.0",
+    "react-helmet": "^5.2.1",
     "styled-components": "^5.0.0",
     "tailwindcss": "^1.1.4"
   },
   "scripts": {
-    "start": "piral debug",
+    "start": "cross-env STAGE_ENV=production piral debug",
+    "start:dev": "cross-env STAGE_ENV=development piral debug",
     "addfiles": "copyfiles ./_redirects dist/release/",
-    "build": "cross-env NODE_ENV=production piral build && npm run addfiles"
+    "build:dev": "cross-env STAGE_ENV=development piral build && npm run addfiles",
+    "build": "cross-env STAGE_ENV=production piral build && npm run addfiles"
   },
   "app": "./src/index.html",
   "pilets": {
@@ -50,6 +53,7 @@
     "@types/react-router": "latest",
     "@types/react-router-dom": "latest",
     "copyfiles": "^2.2.0",
+    "dotenv": "^8.2.0",
     "piral-cli": "next",
     "sass": "^1.24.4",
     "typescript": "latest"

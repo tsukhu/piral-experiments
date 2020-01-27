@@ -7,15 +7,20 @@ import { createSvelteApi } from "piral-svelte";
 // import { createLitElApi } from "piral-litel";
 import { layout, errors } from "./layout";
 
-// change to your feed URL here (either using feed.piral.io or your own service)
-// const feedUrl = 'http://localhost:9000/api/v1/pilet';
-const feedUrl = "https://feed.piral.io/api/v1/pilet/tksukhu";
+const activeEnv = process.env.STAGE_ENV || 'development';
+
+require('dotenv').config({
+  path: `.env.${activeEnv}`,
+});
+
+
+const feedServiceUrl = process.env.FEED_SERVICE_URL || 'http://localhost:9000/api/v1/pilet';
 
 renderInstance({
   layout,
   errors,
   requestPilets() {
-    return fetch(feedUrl)
+    return fetch(feedServiceUrl)
       .then(res => res.json())
       .then(res => res.items)
       .catch(() => {

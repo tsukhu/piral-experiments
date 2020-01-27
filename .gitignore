@@ -16,5 +16,5 @@ yarn.lock
 *.tgz
 dist/
 .cache/
-styles/tailwind.css
-.env.*
+src/styles/tailwind.css
+piral-helmet/

@@ -1,4 +1,5 @@
 import * as React from "react";
+import withHelmet from './with-helmet';
 
 export interface MyPageProps {
   data: Array<{
@@ -9,7 +10,7 @@ export interface MyPageProps {
   }>;
 }
 
-export const MyPage: React.FC<MyPageProps> = ({ data }) => (
+const MyPage: React.FC<MyPageProps> = ({ data }) => (
   <div className="flex flex-row justify-center align-content-center mt-2">
     <div className="p-2">
       <h1 className="text-center font-bold text-lg capitalize">posts from react pilet</h1>
@@ -26,3 +27,5 @@ export const MyPage: React.FC<MyPageProps> = ({ data }) => (
     </div>
   </div>
 );
+
+export default withHelmet(MyPage, "Posts");

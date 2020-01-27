@@ -117,14 +117,13 @@ export const errors: Partial<ErrorComponentsState> = {
   )
 };
 
-export const layout: Partial<ComponentsState> = {
-  ErrorInfo: props => (
-    <div className="text-center m-2 p-2">
-      <h1 className="antialiased font-bold text-red-600 text-lg">Error</h1>
-      <SwitchErrorInfo {...props} />
-    </div>
-  ),
-  DashboardContainer: ({ children }) => (
+const DashboardContainerView = ({ children }) => (
+  <>
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>"Piral App"</title>
+    </Helmet>
+
     <div className="container max-w-full mx-auto mt-2 ">
       <h1 className="text-center text-4xl text-black font-medium leading-snug tracking-wider">
         Piral microfrontend experiments
@@ -139,7 +138,34 @@ export const layout: Partial<ComponentsState> = {
         {children}
       </div>
     </div>
+  </>
+);
+
+export const layout: Partial<ComponentsState> = {
+  ErrorInfo: props => (
+    <div className="text-center m-2 p-2">
+      <h1 className="antialiased font-bold text-red-600 text-lg">Error</h1>
+      <SwitchErrorInfo {...props} />
+    </div>
   ),
+  DashboardContainer: ({ children }) => {
+    document.title="Main App";
+    return (
+    <div className="container max-w-full mx-auto mt-2 ">
+      <h1 className="text-center text-4xl text-black font-medium leading-snug tracking-wider">
+        Piral microfrontend experiments
+      </h1>
+      <p className="text-center text-lg text-gray-700 mt-2 px-6">
+        Welcome to your new microfrontend app shell, built with Piral
+      </p>
+      <div className="h-1 mx-auto bg-indigo-200 w-24 opacity-75 mt-4 rounded"></div>
+
+      <div className="flex flex-row flex-wrap align-center mx-32 mt-4">
+        {defaultTiles()}
+        {children}
+      </div>
+    </div>
+  )},
   DashboardTile: ({ columns, rows, children }) => <>{children}</>,
   Layout: ({ children }) => (
     <div>
@@ -155,7 +181,6 @@ export const layout: Partial<ComponentsState> = {
   ),
   MenuContainer: ({ children }) => {
     const [collapsed, setCollapsed] = React.useState(true);
-    console.log(collapsed);
     return (
       <header>
         <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
@@ -175,7 +200,7 @@ export const layout: Partial<ComponentsState> = {
           </div>
           <div className="block lg:hidden">
             <button
-              className="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light hover:text-white hover:border-white"
+              className="flex items-center px-3 py-2 border border-black rounded hover:text-white hover:border-white"
               onClick={() => setCollapsed(!collapsed)}
             >
               <svg
