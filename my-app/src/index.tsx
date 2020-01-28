@@ -4,17 +4,18 @@ import "@webcomponents/webcomponentsjs/webcomponents-bundle.js";
 import "@webcomponents/webcomponentsjs/custom-elements-es5-adapter"; */
 import { renderInstance } from "piral";
 import { createSvelteApi } from "piral-svelte";
+import { createLinkApi } from "piral-navlink";
 // import { createLitElApi } from "piral-litel";
 import { layout, errors } from "./layout";
 
-const activeEnv = process.env.STAGE_ENV || 'development';
+const activeEnv = process.env.STAGE_ENV || "development";
 
-require('dotenv').config({
-  path: `.env.${activeEnv}`,
+require("dotenv").config({
+  path: `.env.${activeEnv}`
 });
 
-
-const feedServiceUrl = process.env.FEED_SERVICE_URL || 'http://localhost:9000/api/v1/pilet';
+const feedServiceUrl =
+  process.env.FEED_SERVICE_URL || "http://localhost:9000/api/v1/pilet";
 
 renderInstance({
   layout,
@@ -27,5 +28,5 @@ renderInstance({
         return [];
       });
   },
-  extendApi: [createSvelteApi()]
+  extendApi: [createSvelteApi(), createLinkApi()]
 });

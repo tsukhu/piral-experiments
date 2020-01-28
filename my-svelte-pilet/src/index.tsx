@@ -7,11 +7,18 @@ import MyPage from "./MyPage.svelte";
 
 export function setup(app: PiletApi) {
   app.registerPage("/svlete-posts", app.fromSvelte(MyPage));
- // app.registerMenu(() => <a href="/svlete-posts">Svelte Posts</a>);
- /*  app.registerTile(app.fromSvelte(Tile), {
-    initialColumns: 2,
-    initialRows: 2
-  }); */
+  app.registerMenu(() => app.createLink("/svlete-posts", "Svelte Posts"));
+  app.registerTile(
+    () => app.createTile(
+      "/svlete-posts",
+      "My Svelte Pilet",
+      "say hello to Svelte from extension api"
+    ),
+    {
+      initialColumns: 2,
+      initialRows: 2
+    }
+  );
 }
 
 export default app;

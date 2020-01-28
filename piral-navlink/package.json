@@ -1,0 +1,53 @@
+{
+  "name": "piral-navlink",
+  "version": "1.0.6",
+  "description": "Plugin for the navlink in Piral.",
+  "keywords": [
+    "piral",
+    "pilet-api",
+    "smapiot",
+    "portal",
+    "modules",
+    "api",
+    "navlink",
+    "http",
+    "requester",
+    "plugin",
+    "plugin-network",
+    "spa"
+  ],
+  "author": "tksukhu",
+  "homepage": "https://github.com/tsukhu/piral-experiments",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "api.d.ts",
+    "lib",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsukhu/piral-experiments.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tsukhu/piral-experiments/issues"
+  },
+  "scripts": {
+    "build": "tsc",
+    "typedoc": "typedoc --json ../../../docs/types/piral-axios.json src --exclude \"src/**/*.test.*\"",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "devDependencies": {
+    "piral-core": "next",
+    "react": ">= 16.8.0",
+    "react-dom": ">= 16.8.0",
+    "react-router-dom": "^5.1.2",
+    "typescript": "^3.7.5"
+  },
+  "peerDependencies": {
+    "piral-core": "next",
+    "react": ">= 16.8.0",
+    "react-dom": ">= 16.8.0"
+  }
+}

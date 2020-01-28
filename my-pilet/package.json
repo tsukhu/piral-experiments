@@ -25,7 +25,7 @@
     "@types/react-router": "latest",
     "@types/react-router-dom": "latest",
     "history": "4.10.1",
-    "my-app": "file:C:\\workspace\\test\\microfrontend\\piral-experiments\\my-app\\dist\\develop\\my-app-1.0.20.tgz",
+    "my-app": "file:C:\\workspace\\test\\microfrontend\\piral-experiments\\my-app\\dist\\develop\\my-app-1.0.22.tgz",
     "path-to-regexp": "1.8.0",
     "piral-cli": "^0.9.3",
     "dotenv": "^8.2.0",

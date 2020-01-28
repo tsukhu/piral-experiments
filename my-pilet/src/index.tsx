@@ -31,10 +31,20 @@ const Tile: React.FC<TileItemProps> = ({ link, name, description }) => {
   );
 };
 
+export interface NavLinkProps {
+  to: string;
+  label: string;
+}
+
+
 export function setup(app: PiletApi) {
   const connect = app.createConnector(() =>
     fetch(apiUrl).then(res => res.json())
   );
+
+  app.registerExtension<NavLinkProps>('navlink', ({ params: { to, label } }) => (
+    <NavLink to={to}>{label}</NavLink>
+  ));
   // app.showNotification("Hello from Piral!");
   app.registerPage("/posts", 
     connect(MyPage)
@@ -49,8 +59,9 @@ export function setup(app: PiletApi) {
       title="Meetup"
     />
   ));
-  app.registerMenu(() => <NavLink to="/docs">Piral Docs</NavLink>);
+  app.registerMenu(() => <app.Extension name="navlink" params={{to: "/docs", label:"Piral Docs"}}/>);
   app.registerMenu(() => <NavLink to="/meetup">Meetup</NavLink>);
+  
   app.registerPage("/typescript-site", () => (
     <IFrame id="typescript" url="https://www.typescriptlang.org/" title="Typescript" />
   ));

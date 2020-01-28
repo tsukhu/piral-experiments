@@ -15,5 +15,6 @@ yarn-error.log*
 yarn.lock
 *.tgz
 dist/
+lib/
 .cache/
-src/styles/tailwind.css
+styles/tailwind.css

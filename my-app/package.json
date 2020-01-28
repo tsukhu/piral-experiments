@@ -1,6 +1,6 @@
 {
   "name": "my-app",
-  "version": "1.0.20",
+  "version": "1.0.25",
   "description": "",
   "keywords": [
     "piral"
@@ -16,6 +16,7 @@
     "lit-element": "^2.2.1",
     "piral": "next",
     "piral-litel": "^0.10.0-pre.823",
+    "piral-navlink": "..\\piral-navlink\\piral-navlink-v1.0.6.tgz",
     "piral-svelte": "^0.10.0-pre.827",
     "postcss-cli": "^7.1.0",
     "postcss-modules": "^1.5.0",

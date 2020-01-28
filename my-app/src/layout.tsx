@@ -34,9 +34,9 @@ const Tile: React.FC<TileItemProps> = ({ link, name, description }) => {
       <div className="relative bg-white rounded border hover:border-teal-600">
         <div className="p-4">
           <h3 className="text-lg font-bold hover:text-red-700">
-            {link.startsWith("/") && <NavLink to={link}>{name}</NavLink>}
-            {!link.startsWith("/") && (
-              <a href={link} title={name}>
+            {!link.startsWith("http") && <NavLink to={link}>{name}</NavLink>}
+            {link.startsWith("http") && (
+              <a href={link} title={name} target="_blank">
                 {name}
               </a>
             )}
@@ -51,9 +51,9 @@ const Tile: React.FC<TileItemProps> = ({ link, name, description }) => {
 const defaultTiles = () => {
   const tileList = [
     {
-      link: "/svlete-posts",
-      name: "My Svelte Pilet",
-      description: "Say hello to Svelte"
+      link: "https://micro-frontends.org/",
+      name: "Microfrontends",
+      description: "extending the microservice idea to frontend development"
     } /* ,
     {
       link: "/lit-page",
@@ -73,7 +73,7 @@ const defaultTiles = () => {
 
 const defaultMenuItems = (
   <>
-    <MenuItem type="general">
+    {/*    <MenuItem type="general">
       <NavLink
         className="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4"
         to="/svlete-posts"
@@ -81,7 +81,7 @@ const defaultMenuItems = (
         Svelte Hobbies
       </NavLink>
     </MenuItem>
-    {/*     <MenuItem type="general">
+     <MenuItem type="general">
       <NavLink
         className="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4"
         to="/lit-page"
@@ -117,30 +117,6 @@ export const errors: Partial<ErrorComponentsState> = {
   )
 };
 
-const DashboardContainerView = ({ children }) => (
-  <>
-    <Helmet>
-      <meta charSet="utf-8" />
-      <title>"Piral App"</title>
-    </Helmet>
-
-    <div className="container max-w-full mx-auto mt-2 ">
-      <h1 className="text-center text-4xl text-black font-medium leading-snug tracking-wider">
-        Piral microfrontend experiments
-      </h1>
-      <p className="text-center text-lg text-gray-700 mt-2 px-6">
-        Welcome to your new microfrontend app shell, built with Piral
-      </p>
-      <div className="h-1 mx-auto bg-indigo-200 w-24 opacity-75 mt-4 rounded"></div>
-
-      <div className="flex flex-row flex-wrap align-center mx-32 mt-4">
-        {defaultTiles()}
-        {children}
-      </div>
-    </div>
-  </>
-);
-
 export const layout: Partial<ComponentsState> = {
   ErrorInfo: props => (
     <div className="text-center m-2 p-2">
@@ -149,23 +125,24 @@ export const layout: Partial<ComponentsState> = {
     </div>
   ),
   DashboardContainer: ({ children }) => {
-    document.title="Main App";
+    document.title = "Main App";
     return (
-    <div className="container max-w-full mx-auto mt-2 ">
-      <h1 className="text-center text-4xl text-black font-medium leading-snug tracking-wider">
-        Piral microfrontend experiments
-      </h1>
-      <p className="text-center text-lg text-gray-700 mt-2 px-6">
-        Welcome to your new microfrontend app shell, built with Piral
-      </p>
-      <div className="h-1 mx-auto bg-indigo-200 w-24 opacity-75 mt-4 rounded"></div>
+      <div className="container max-w-full mx-auto mt-2 ">
+        <h1 className="text-center text-4xl text-black font-medium leading-snug tracking-wider">
+          Piral microfrontend experiments
+        </h1>
+        <p className="text-center text-lg text-gray-700 mt-2 px-6">
+          Welcome to your new microfrontend app shell, built with Piral
+        </p>
+        <div className="h-1 mx-auto bg-indigo-200 w-24 opacity-75 mt-4 rounded"></div>
 
-      <div className="flex flex-row flex-wrap align-center mx-32 mt-4">
-        {defaultTiles()}
-        {children}
+        <div className="flex flex-row flex-wrap align-center mx-32 mt-4">
+          {defaultTiles()}
+          {children}
+        </div>
       </div>
-    </div>
-  )},
+    );
+  },
   DashboardTile: ({ columns, rows, children }) => <>{children}</>,
   Layout: ({ children }) => (
     <div>
