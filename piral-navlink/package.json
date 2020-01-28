@@ -16,7 +16,7 @@
     "plugin-network",
     "spa"
   ],
-  "author": "tksukhu",
+  "author": "Tarun Kumar Sukhu",
   "homepage": "https://github.com/tsukhu/piral-experiments",
   "license": "MIT",
   "main": "lib/index.js",

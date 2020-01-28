@@ -8,7 +8,8 @@
 - Piral Instance / App Shell (my-app)
 - Piral Pilet #1 / React based pilet (my-pilet) -> Uses JSONHolder API for reading a list of posts
 - Piral Pilet #2 / Svelte based pilet (my-svelte) -> CRUD APIs using Firebase
-- Piral Pilet #4 / LitElement based pilet (my-litelem-pilet) -> Web Component
+- Piral Pilet #3 / LitElement based pilet (my-litelem-pilet) -> Web Component (current disabled due to Edge browser issues)
+- Piral API Extension / NavLink API extension (piral-navlink) -> Piral API extension to provide menu item and tile components built using React Components (NavLink) accessible to non React pilets. (Used in the Svelte App)
 
 # Objectives
 
