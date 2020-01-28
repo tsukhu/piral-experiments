@@ -1,6 +1,6 @@
 {
   "name": "my-app",
-  "version": "1.0.25",
+  "version": "1.0.27",
   "description": "",
   "keywords": [
     "piral"
@@ -58,5 +58,8 @@
     "piral-cli": "next",
     "sass": "^1.24.4",
     "typescript": "latest"
-  }
+  },
+  "browserslist": [
+    "defaults"
+  ]
 }

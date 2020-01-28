@@ -1,8 +1,7 @@
 import { PiletApi } from "my-app";
-import * as React from "react";
 import "./styles/index.scss";
 import "./styles/tailwind.css";
-import Tile from "./Tile.svelte";
+// import Tile from "./Tile.svelte";
 import MyPage from "./MyPage.svelte";
 
 export function setup(app: PiletApi) {

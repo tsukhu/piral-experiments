@@ -9,11 +9,10 @@ const customStore = {
     hobbies.set(items);
   },
   addHobby: (newHobbyData) => {
-    const newHobby = {
-      ...newHobbyData
-    };
+   Object.assign(newHobby, newHobbyData)
     hobbies.update(items => {
-      return [newHobby, ...items];
+      Object.assign(newList, items);
+      return Object.assign([],newList,newHobby);
     });
   },
   removeHobby: (id) => {

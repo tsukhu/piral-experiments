@@ -33,7 +33,7 @@ const Tile: React.FC<TileItemProps> = ({ link, name, description }) => {
     <div className="w-full sm:w-1/2 md:w-1/3 mb-4 px-2">
       <div className="relative bg-white rounded border hover:border-teal-600">
         <div className="p-4">
-          <h3 className="text-lg font-bold hover:text-red-700">
+          <h3 className="md:text-lg font-bold hover:text-red-700">
             {!link.startsWith("http") && <NavLink to={link}>{name}</NavLink>}
             {link.startsWith("http") && (
               <a href={link} title={name} target="_blank">
@@ -192,7 +192,7 @@ export const layout: Partial<ComponentsState> = {
           </div>
           <div
             className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${
-              collapsed ? "sm:hidden" : ""
+              collapsed ? "hidden" : ""
             }`}
           >
             <div className={`text-sm lg:flex-grow `}>
