@@ -16,4 +16,5 @@ yarn.lock
 *.tgz
 dist/
 .cache/
+stencil-app/
 src/styles/tailwind.css

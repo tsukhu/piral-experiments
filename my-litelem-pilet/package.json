@@ -27,7 +27,7 @@
     "lit-element": "^2.2.1",
     "autoprefixer": "^9.7.4",
     "cssnano": "^4.1.10",
-    "my-app": "file:C:\\workspace\\test\\microfrontend\\piral-experiments\\my-app\\dist\\develop\\my-app-1.0.11.tgz",
+    "my-app": "file:C:\\workspace\\test\\microfrontend\\piral-experiments\\my-app\\dist\\develop\\my-app-1.0.28.tgz",
     "postcss-cli": "^7.1.0",
     "postcss-modules": "^1.5.0",
     "react": "^16.12.0",
